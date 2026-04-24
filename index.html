@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Sona &amp; Sahal · 24 May 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Great+Vibes&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+
+/* ═══════════════════════════════════════════
+TOKENS
+═══════════════════════════════════════════ */
+:root {
+–bg:        #fafaf7;
+–surface:   #f2f0eb;
+–gold:      #4a6741;
+–gold-dim:  #3a5232;
+–gold-pale: #2d3f29;
+–gold-glow: rgba(74,103,65,0.1);
+–sage:      #5a7a50;
+–sage-dim:  #3f5a38;
+–champagne: #3a5232;
+–text:      #2d3f29;
+–text-mid:  #4a6741;
+–text-dim:  #7a9870;
+–border:    rgba(74,103,65,0.22);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; background: #ffffff; }
+
+body {
+background: #ffffff;
+color: #2d3f29;
+font-family: ‘EB Garamond’, Georgia, serif;
+text-align: center;
+overflow-x: hidden;
+line-height: 1.6;
+}
+
+/* paper grain — very subtle, white-safe */
+body::after {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘200’ height=‘200’%3E%3Cfilter id=‘g’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.65’ numOctaves=‘3’ stitchTiles=‘stitch’/%3E%3CfeColorMatrix type=‘saturate’ values=‘0’/%3E%3CfeBlend in=‘SourceGraphic’ mode=‘multiply’/%3E%3C/filter%3E%3Crect width=‘200’ height=‘200’ filter=‘url(%23g)’ opacity=‘0.03’/%3E%3C/svg%3E”);
+opacity: 0.018;
+pointer-events: none;
+z-index: 9000;
+mix-blend-mode: multiply;
+}
+
+/* ═══════════════════════════════════════════
+STAR FIELD
+═══════════════════════════════════════════ */
+#stars {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+.star {
+position: absolute;
+background: #7a9870;
+border-radius: 50%;
+animation: twinkle ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+from { opacity: 0.04; transform: scale(1); }
+to   { opacity: 0.14; transform: scale(1.4); }
+}
+
+/* ═══════════════════════════════════════════
+LAYOUT WRAPPER
+═══════════════════════════════════════════ */
+.page {
+position: relative;
+z-index: 1;
+max-width: 480px;
+margin: 0 auto;
+padding: 0 0 80px;
+background: #ffffff;
+}
+
+/* ═══════════════════════════════════════════
+REVEAL ANIMATION
+═══════════════════════════════════════════ */
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.22s; }
+.d3 { transition-delay: 0.36s; }
+.d4 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════
+DIVIDER
+═══════════════════════════════════════════ */
+.divider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+margin: 32px auto;
+max-width: 240px;
+}
+.div-line {
+flex: 1;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–gold-dim));
+}
+.div-line.r { background: linear-gradient(to left, transparent, var(–gold-dim)); }
+.div-diamond {
+width: 7px; height: 7px;
+background: var(–gold);
+transform: rotate(45deg);
+flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+EYEBROW LABEL
+═══════════════════════════════════════════ */
+.eyebrow {
+font-family: ‘Cinzel’, serif;
+font-size: 0.55rem;
+font-weight: 400;
+letter-spacing: 0.38em;
+text-transform: uppercase;
+color: var(–gold-dim);
+}
+
+/* ═══════════════════════════════════════════
+① HERO — Arch Illustration
+═══════════════════════════════════════════ */
+#hero {
+position: relative;
+padding: 56px 24px 0;
+min-height: 100svh;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: #ffffff;
+}
+
+/* Subtle botanical tint behind illustration */
+#hero::before {
+content: ‘’;
+position: absolute;
+top: 80px; left: 50%;
+transform: translateX(-50%);
+width: 340px; height: 460px;
+background: radial-gradient(ellipse, rgba(74,103,65,0.06) 0%, transparent 70%);
+pointer-events: none;
+}
+
+/* ─ Top script header ─ */
+.hero-top {
+animation: fadeUp 1s 0.1s both;
+margin-bottom: 40px;
+}
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+.hero-top .eyebrow { display: block; margin-bottom: 12px; }
+.hero-invite-text {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 1rem;
+color: var(–text-mid);
+letter-spacing: 0.06em;
+}
+
+/* ─ Arch Frame ─ */
+.arch-wrapper {
+position: relative;
+width: 240px;
+margin: 0 auto;
+animation: fadeUp 1s 0.3s both;
+}
+
+/* botanical SVG left & right */
+.arch-flora {
+position: absolute;
+pointer-events: none;
+z-index: 3;
+}
+.arch-flora.left  { left: -68px;  top: 12px; width: 82px; }
+.arch-flora.right { right: -68px; top: 12px; width: 82px; transform: scaleX(-1); }
+.arch-flora.bot-l { left: -54px; bottom: -20px; width: 70px; transform: scaleY(-1) rotate(10deg); }
+.arch-flora.bot-r { right: -54px; bottom: -20px; width: 70px; transform: scaleX(-1) scaleY(-1) rotate(10deg); }
+
+/* The arch itself */
+.arch-frame {
+position: relative;
+width: 240px;
+height: 320px;
+border-radius: 120px 120px 16px 16px;
+overflow: hidden;
+border: 1px solid rgba(74,103,65,0.3);
+box-shadow:
+0 0 0 6px rgba(74,103,65,0.05),
+0 0 0 7px rgba(74,103,65,0.1),
+0 24px 60px rgba(74,103,65,0.15),
+inset 0 0 30px rgba(74,103,65,0.08);
+z-index: 2;
+}
+
+/* Olive arch rim */
+.arch-frame::before {
+content: ‘’;
+position: absolute;
+inset: -1px;
+border-radius: inherit;
+background: linear-gradient(
+160deg,
+rgba(74,103,65,0.35) 0%,
+transparent 35%,
+transparent 65%,
+rgba(74,103,65,0.2) 100%
+);
+z-index: 4;
+pointer-events: none;
+}
+
+.arch-frame::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+border-radius: inherit;
+background: radial-gradient(ellipse at center 30%, transparent 55%, rgba(74,103,65,0.12) 100%);
+z-index: 3;
+pointer-events: none;
+}
+
+.arch-frame img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top center;
+display: block;
+filter: sepia(0.08) contrast(1.04);
+}
+
+/* Placeholder when image is missing */
+.arch-placeholder {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: linear-gradient(170deg, #1e1810, #0d0b08);
+gap: 14px;
+}
+.arch-placeholder svg { opacity: 0.3; }
+.arch-placeholder p {
+font-family: ‘Cinzel’, serif;
+font-size: 0.52rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold-dim);
+opacity: 0.6;
+}
+
+/* Crown botanical on very top of arch */
+.arch-crown {
+position: absolute;
+top: -32px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 4;
+pointer-events: none;
+}
+
+/* ─ Names ─ */
+.names-block {
+margin-top: 44px;
+animation: fadeUp 1s 0.6s both;
+}
+.name-script {
+font-family: ‘Great Vibes’, cursive;
+font-size: clamp(3.6rem, 16vw, 5.2rem);
+line-height: 1;
+color: var(–gold);
+text-shadow: 0 0 60px rgba(201,163,86,0.2);
+display: block;
+}
+.name-amp {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 1.6rem;
+color: var(–gold-dim);
+display: block;
+margin: -6px 0;
+letter-spacing: 0.08em;
+}
+
+/* ─ Date banner ─ */
+.date-banner {
+margin-top: 32px;
+animation: fadeUp 1s 0.85s both;
+}
+.date-cinzel {
+font-family: ‘Cinzel’, serif;
+font-size: 0.7rem;
+font-weight: 400;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–champagne);
+}
+.date-sub {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 0.9rem;
+color: var(–text-mid);
+margin-top: 6px;
+}
+
+.scroll-cue {
+margin-top: 48px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+animation: fadeUp 1s 1.2s both;
+padding-bottom: 32px;
+}
+.scroll-cue span {
+font-family: ‘Cinzel’, serif;
+font-size: 0.48rem;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–text-dim);
+}
+.scroll-line {
+width: 1px;
+height: 44px;
+background: linear-gradient(to bottom, var(–gold-dim), transparent);
+animation: breathe 2.4s ease-in-out infinite;
+}
+@keyframes breathe {
+0%,100%{ opacity: 0.4; transform: scaleY(1); }
+50%    { opacity: 1;   transform: scaleY(1.12); }
+}
+
+/* ═══════════════════════════════════════════
+② QUOTE
+═══════════════════════════════════════════ */
+#quote {
+padding: 64px 36px;
+position: relative;
+z-index: 1;
+background: #ffffff;
+}
+.quote-mark {
+font-family: ‘EB Garamond’, serif;
+font-size: 9rem;
+line-height: 0.6;
+color: var(–gold);
+opacity: 0.1;
+user-select: none;
+pointer-events: none;
+position: absolute;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+}
+.quote-text {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: clamp(1.2rem, 4vw, 1.5rem);
+line-height: 1.9;
+color: var(–champagne);
+position: relative;
+z-index: 1;
+max-width: 340px;
+margin: 0 auto;
+}
+.quote-attr {
+display: block;
+margin-top: 20px;
+font-family: ‘Cinzel’, serif;
+font-size: 0.52rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold-dim);
+}
+
+/* ═══════════════════════════════════════════
+③ COUNTDOWN
+═══════════════════════════════════════════ */
+#countdown {
+padding: 64px 24px;
+background: #f4f7f2;
+position: relative;
+z-index: 1;
+}
+.cd-title {
+font-family: ‘Cinzel’, serif;
+font-size: 0.55rem;
+letter-spacing: 0.34em;
+text-transform: uppercase;
+color: var(–gold-dim);
+margin-bottom: 40px;
+display: block;
+}
+.cd-row {
+display: flex;
+justify-content: center;
+align-items: flex-end;
+gap: clamp(8px, 3vw, 24px);
+}
+.cd-unit {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+.cd-num {
+font-family: ‘Cinzel’, serif;
+font-size: clamp(2.8rem, 10vw, 4.5rem);
+font-weight: 300;
+color: #2d3f29;
+line-height: 1;
+letter-spacing: -0.02em;
+}
+.cd-lbl {
+font-family: ‘Cinzel’, serif;
+font-size: 0.46rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–text-dim);
+}
+.cd-colon {
+font-family: ‘Cinzel’, serif;
+font-size: clamp(2rem, 7vw, 3.5rem);
+color: rgba(74,103,65,0.3);
+padding-bottom: 18px;
+flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+④ EVENT DETAILS
+═══════════════════════════════════════════ */
+#details {
+padding: 64px 32px;
+position: relative;
+z-index: 1;
+background: #ffffff;
+}
+.detail-line {
+margin-bottom: 6px;
+}
+.venue-name {
+font-family: ‘Great Vibes’, cursive;
+font-size: clamp(2.4rem, 10vw, 3.4rem);
+color: var(–gold);
+line-height: 1.1;
+display: block;
+margin: 10px 0 6px;
+}
+.venue-area {
+font-family: ‘Cinzel’, serif;
+font-size: 0.58rem;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+color: var(–text-mid);
+}
+.event-time {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 1.1rem;
+color: var(–champagne);
+margin-top: 18px;
+}
+
+/* Maps button */
+.map-btn {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+margin-top: 32px;
+padding: 14px 28px;
+border: 1px solid var(–border);
+color: var(–gold);
+text-decoration: none;
+font-family: ‘Cinzel’, serif;
+font-size: 0.55rem;
+letter-spacing: 0.26em;
+text-transform: uppercase;
+background: transparent;
+transition: background 0.35s, color 0.35s, border-color 0.35s;
+position: relative;
+overflow: hidden;
+}
+.map-btn::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: var(–gold);
+transform: translateX(-100%);
+transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+z-index: 0;
+}
+.map-btn:active::before,
+.map-btn:hover::before { transform: translateX(0); }
+.map-btn span, .map-btn svg { position: relative; z-index: 1; }
+.map-btn:hover { color: var(–bg); border-color: var(–gold); }
+.map-btn svg { width: 13px; height: 13px; fill: currentColor; }
+
+/* ═══════════════════════════════════════════
+⑤ RSVP
+═══════════════════════════════════════════ */
+#rsvp {
+padding: 64px 32px;
+background: linear-gradient(180deg, transparent, rgba(74,103,65,0.04) 50%, transparent);
+position: relative;
+z-index: 1;
+}
+.rsvp-heading {
+font-family: ‘Cinzel’, serif;
+font-size: clamp(1.5rem, 5vw, 2.2rem);
+font-weight: 300;
+color: var(–gold-pale);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+margin: 14px 0 8px;
+}
+.rsvp-sub {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 1rem;
+color: var(–text-mid);
+margin-bottom: 40px;
+}
+.rsvp-stack {
+display: flex;
+flex-direction: column;
+gap: 12px;
+max-width: 320px;
+margin: 0 auto;
+}
+.rsvp-link {
+display: block;
+padding: 18px 24px;
+text-decoration: none;
+font-family: ‘Cinzel’, serif;
+font-size: 0.6rem;
+letter-spacing: 0.26em;
+text-transform: uppercase;
+border: 1px solid;
+transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+position: relative;
+overflow: hidden;
+}
+.rsvp-link::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+transform: translateX(-100%);
+transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+z-index: 0;
+}
+.rsvp-link span { position: relative; z-index: 1; }
+.rsvp-link:active::after, .rsvp-link:hover::after { transform: translateX(0); }
+
+.rl-yes  { border-color: var(–gold); color: var(–gold); }
+.rl-yes::after  { background: var(–gold); }
+.rl-yes:hover   { color: var(–bg); }
+
+.rl-maybe { border-color: var(–sage); color: var(–sage-dim); }
+.rl-maybe::after { background: var(–sage); }
+.rl-maybe:hover { color: var(–bg); border-color: var(–sage); }
+
+.rl-no  { border-color: rgba(74,103,65,0.22); color: var(–text-dim); }
+.rl-no::after { background: rgba(74,103,65,0.1); }
+.rl-no:hover  { color: var(–text-mid); }
+
+/* ═══════════════════════════════════════════
+⑥ DRESS CODE
+═══════════════════════════════════════════ */
+#dresscode {
+padding: 56px 32px;
+position: relative;
+z-index: 1;
+background: #f4f7f2;
+}
+.swatch-row {
+display: flex;
+justify-content: center;
+gap: 18px;
+flex-wrap: wrap;
+margin: 32px 0;
+}
+.swatch {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+}
+.sw-circle {
+width: 42px; height: 42px;
+border-radius: 50%;
+box-shadow: 0 2px 10px rgba(74,103,65,0.2);
+}
+.sw-lbl {
+font-family: ‘Cinzel’, serif;
+font-size: 0.42rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–text-dim);
+}
+.dresscode-note {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 1.05rem;
+color: var(–text-mid);
+max-width: 320px;
+margin: 0 auto;
+line-height: 1.85;
+}
+
+/* ═══════════════════════════════════════════
+⑦ FOOTER
+═══════════════════════════════════════════ */
+footer {
+padding: 64px 32px 48px;
+border-top: 1px solid rgba(74,103,65,0.15);
+position: relative;
+z-index: 1;
+background: #ffffff;
+}
+.foot-names {
+font-family: ‘Great Vibes’, cursive;
+font-size: 3rem;
+color: var(–gold);
+opacity: 0.75;
+line-height: 1;
+margin-bottom: 10px;
+}
+.foot-date {
+font-family: ‘Cinzel’, serif;
+font-size: 0.5rem;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(–text-dim);
+margin-bottom: 32px;
+}
+.foot-love {
+font-family: ‘EB Garamond’, serif;
+font-style: italic;
+font-size: 0.9rem;
+color: var(–text-dim);
+opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════
+MUSIC BTN
+═══════════════════════════════════════════ */
+#music-btn {
+position: fixed;
+bottom: 24px;
+right: 20px;
+z-index: 8000;
+background: rgba(250,250,247,0.92);
+border: 1px solid var(–border);
+color: var(–gold-dim);
+padding: 10px 16px;
+font-family: ‘Cinzel’, serif;
+font-size: 0.5rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+cursor: pointer;
+backdrop-filter: blur(8px);
+box-shadow: 0 2px 16px rgba(74,103,65,0.12);
+transition: color 0.3s, border-color 0.3s, background 0.3s;
+display: flex;
+align-items: center;
+gap: 7px;
+}
+#music-btn:hover { color: var(–gold); border-color: rgba(74,103,65,0.4); }
+#music-btn.playing { color: var(–gold); border-color: rgba(74,103,65,0.4); }
+#music-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ═══════════════════════════════════════════
+RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 400px) {
+.arch-flora.left  { left: -54px; width: 66px; }
+.arch-flora.right { right: -54px; width: 66px; }
+.arch-flora.bot-l { left: -40px; }
+.arch-flora.bot-r { right: -40px; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ════ STARFIELD ════ -->
+
+<div id="stars" aria-hidden="true"></div>
+
+<!-- ════ MUSIC ════ -->
+
+<button id="music-btn" onclick="toggleMusic()" aria-label="Toggle ambient music">
+  <svg id="mus-ico" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+  <span id="mus-lbl">Atmosphere</span>
+</button>
+<audio id="bgm" loop>
+  <!-- Drop an ambient .mp3 URL here -->
+</audio>
+
+<div class="page">
+
+  <!-- ════════════════════════════════════════
+       ①  H E R O
+  ════════════════════════════════════════ -->
+
+  <section id="hero">
+
+```
+<div class="hero-top">
+  <span class="eyebrow">The Wedding Reception of</span>
+  <p class="hero-invite-text">Two families, one beautiful union</p>
+</div>
+
+<!-- Arch Illustration -->
+<div class="arch-wrapper">
+
+  <!-- Crown botanical -->
+  <svg class="arch-crown" width="100" height="44" viewBox="0 0 100 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M50 40 C46 32 38 24 30 20 C22 16 14 16 8 12 C4 9 2 6 2 3" stroke="#7e9870" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M50 40 C54 32 62 24 70 20 C78 16 86 16 92 12 C96 9 98 6 98 3" stroke="#7e9870" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <ellipse cx="18" cy="15" rx="10" ry="5" transform="rotate(-30 18 15)" fill="#7e9870" opacity="0.6"/>
+    <ellipse cx="32" cy="23" rx="11" ry="5" transform="rotate(-18 32 23)" fill="#5a7052" opacity="0.55"/>
+    <ellipse cx="82" cy="15" rx="10" ry="5" transform="rotate(30 82 15)" fill="#7e9870" opacity="0.6"/>
+    <ellipse cx="68" cy="23" rx="11" ry="5" transform="rotate(18 68 23)" fill="#5a7052" opacity="0.55"/>
+    <circle cx="50" cy="38" r="3" fill="#c9a356" opacity="0.7"/>
+    <circle cx="43" cy="36" r="2.2" fill="#c9a356" opacity="0.55"/>
+    <circle cx="57" cy="36" r="2.2" fill="#c9a356" opacity="0.55"/>
+    <path d="M50 40 L50 44" stroke="#c9a356" stroke-width="0.8" opacity="0.4"/>
+  </svg>
+
+  <!-- Left botanical branch -->
+  <svg class="arch-flora left" viewBox="0 0 82 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M68 0 C64 40 60 80 58 120 C55 170 52 220 48 280" stroke="#7e9870" stroke-width="1.3" fill="none"/>
+    <ellipse cx="54" cy="100" rx="18" ry="8" transform="rotate(-38 54 100)" fill="#7e9870" opacity="0.65"/>
+    <ellipse cx="60" cy="78"  rx="16" ry="7" transform="rotate(20 60 78)"  fill="#5a7052" opacity="0.55"/>
+    <ellipse cx="52" cy="130" rx="19" ry="8" transform="rotate(-44 52 130)" fill="#7e9870" opacity="0.6"/>
+    <ellipse cx="58" cy="157" rx="16" ry="7" transform="rotate(18 58 157)" fill="#a0b892" opacity="0.5"/>
+    <ellipse cx="52" cy="182" rx="17" ry="7" transform="rotate(-32 52 182)" fill="#7e9870" opacity="0.55"/>
+    <ellipse cx="56" cy="210" rx="14" ry="6" transform="rotate(26 56 210)" fill="#5a7052" opacity="0.45"/>
+    <!-- berry cluster -->
+    <circle cx="42" cy="115" r="3.5" fill="#c9a356" opacity="0.6"/>
+    <circle cx="36" cy="122" r="2.8" fill="#c9a356" opacity="0.5"/>
+    <circle cx="46" cy="121" r="3"   fill="#a07c38" opacity="0.55"/>
+    <!-- branch tendril -->
+    <path d="M56 145 C38 138 20 132 6 126" stroke="#7e9870" stroke-width="0.8" opacity="0.38" fill="none"/>
+    <ellipse cx="20" cy="129" rx="12" ry="5" transform="rotate(-12 20 129)" fill="#a0b892" opacity="0.32"/>
+  </svg>
+
+  <!-- Right botanical branch (mirror) -->
+  <svg class="arch-flora right" viewBox="0 0 82 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M68 0 C64 40 60 80 58 120 C55 170 52 220 48 280" stroke="#7e9870" stroke-width="1.3" fill="none"/>
+    <ellipse cx="54" cy="100" rx="18" ry="8" transform="rotate(-38 54 100)" fill="#7e9870" opacity="0.65"/>
+    <ellipse cx="60" cy="78"  rx="16" ry="7" transform="rotate(20 60 78)"  fill="#5a7052" opacity="0.55"/>
+    <ellipse cx="52" cy="130" rx="19" ry="8" transform="rotate(-44 52 130)" fill="#7e9870" opacity="0.6"/>
+    <ellipse cx="58" cy="157" rx="16" ry="7" transform="rotate(18 58 157)" fill="#a0b892" opacity="0.5"/>
+    <ellipse cx="52" cy="182" rx="17" ry="7" transform="rotate(-32 52 182)" fill="#7e9870" opacity="0.55"/>
+    <circle cx="42" cy="115" r="3.5" fill="#c9a356" opacity="0.6"/>
+    <circle cx="36" cy="122" r="2.8" fill="#c9a356" opacity="0.5"/>
+    <circle cx="46" cy="121" r="3"   fill="#a07c38" opacity="0.55"/>
+  </svg>
+
+  <!-- Bottom botanicals -->
+  <svg class="arch-flora bot-l" viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M60 10 C44 18 28 28 12 40 C6 44 2 50 2 58" stroke="#7e9870" stroke-width="1.1" fill="none"/>
+    <ellipse cx="36" cy="25" rx="14" ry="6" transform="rotate(-20 36 25)" fill="#7e9870" opacity="0.55"/>
+    <ellipse cx="20" cy="38" rx="12" ry="5" transform="rotate(-10 20 38)" fill="#a0b892" opacity="0.45"/>
+    <circle cx="50" cy="16" r="3" fill="#c9a356" opacity="0.5"/>
+  </svg>
+
+  <svg class="arch-flora bot-r" viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M60 10 C44 18 28 28 12 40 C6 44 2 50 2 58" stroke="#7e9870" stroke-width="1.1" fill="none"/>
+    <ellipse cx="36" cy="25" rx="14" ry="6" transform="rotate(-20 36 25)" fill="#7e9870" opacity="0.55"/>
+    <ellipse cx="20" cy="38" rx="12" ry="5" transform="rotate(-10 20 38)" fill="#a0b892" opacity="0.45"/>
+    <circle cx="50" cy="16" r="3" fill="#c9a356" opacity="0.5"/>
+  </svg>
+
+  <!-- The actual arch photo frame -->
+  <div class="arch-frame">
+    <img
+      src="IMG_9900.jpeg"
+      alt="Sona and Sahal"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+    >
+    <div class="arch-placeholder" style="display:none;">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#4a6741" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <p style="color:#4a6741;">Place IMG_9900.jpeg<br>in the same folder</p>
+    </div>
+  </div>
+
+</div><!-- /arch-wrapper -->
+
+<!-- Names -->
+<div class="names-block">
+  <span class="name-script">Sona</span>
+  <span class="name-amp">and</span>
+  <span class="name-script">Sahal</span>
+</div>
+
+<!-- Date -->
+<div class="date-banner">
+  <p class="date-cinzel">Sunday · 24 May 2026</p>
+  <p class="date-sub">Family Lounge Convention Centre · Anakkayam, Malappuram</p>
+</div>
+
+<div class="scroll-cue" aria-hidden="true">
+  <span>Scroll</span>
+  <div class="scroll-line"></div>
+</div>
+```
+
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ②  Q U O T E
+  ════════════════════════════════════════ -->
+
+  <section id="quote">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <div class="reveal">
+      <blockquote class="quote-text">
+        No chance. No coincidence.<br>
+        Only what was always written,<br>
+        now unfolding — beautifully.
+        <span class="quote-attr">Written in the Stars</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ③  C O U N T D O W N
+  ════════════════════════════════════════ -->
+
+  <section id="countdown">
+    <div class="reveal">
+      <span class="cd-title">The Celebration Begins In</span>
+      <div class="cd-row">
+        <div class="cd-unit"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Days</span></div>
+        <span class="cd-colon" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Hours</span></div>
+        <span class="cd-colon" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Mins</span></div>
+        <span class="cd-colon" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Secs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ④  D E T A I L S
+  ════════════════════════════════════════ -->
+
+  <section id="details">
+    <div class="reveal">
+      <span class="eyebrow">Join Us</span>
+      <div class="divider"><span class="div-line"></span><span class="div-diamond"></span><span class="div-line r"></span></div>
+
+```
+  <p class="date-cinzel detail-line">Sunday, 24 May 2026</p>
+  <p class="event-time">11:00 AM &ndash; 3:00 PM</p>
+
+  <span class="venue-name">Family Lounge</span>
+  <p class="venue-area">Convention Centre · Anakkayam, Malappuram</p>
+
+  <div class="divider"><span class="div-line"></span><span class="div-diamond"></span><span class="div-line r"></span></div>
+
+  <a href="https://maps.app.goo.gl/MMLqgXnXoAXRjkeZ6?g_st=ic" target="_blank" rel="noopener" class="map-btn">
+    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    <span>Navigate to Venue</span>
+  </a>
+</div>
+```
+
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ⑤  R S V P
+  ════════════════════════════════════════ -->
+
+  <section id="rsvp">
+    <div class="reveal">
+      <span class="eyebrow">Your Presence</span>
+      <h2 class="rsvp-heading">Kindly Respond</h2>
+      <p class="rsvp-sub">Reach us via WhatsApp · Reply by 10 May</p>
+
+```
+  <div class="rsvp-stack">
+    <a class="rsvp-link rl-yes"
+       href="https://wa.me/919746321310?text=100%25%20In!%20Wouldn%27t%20miss%20it."
+       target="_blank" rel="noopener">
+      <span>✓ &ensp;100% In — Wouldn't Miss It</span>
+    </a>
+    <a class="rsvp-link rl-maybe"
+       href="https://wa.me/919746321310?text=Almost%20there%20(51-99%25).%20Trying%20my%20best!"
+       target="_blank" rel="noopener">
+      <span>◌ &ensp;Almost There — Trying My Best</span>
+    </a>
+    <a class="rsvp-link rl-no"
+       href="https://wa.me/919746321310?text=Low%20chances%20(0-50%25).%20I%27ll%20let%20you%20know."
+       target="_blank" rel="noopener">
+      <span>✕ &ensp;Low Chances — Will Update</span>
+    </a>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ⑥  D R E S S  C O D E
+  ════════════════════════════════════════ -->
+
+  <section id="dresscode">
+    <div class="reveal">
+      <span class="eyebrow">Attire</span>
+      <div class="divider"><span class="div-line"></span><span class="div-diamond"></span><span class="div-line r"></span></div>
+
+```
+  <div class="swatch-row">
+    <div class="swatch"><div class="sw-circle" style="background:#d8c9ab;"></div><span class="sw-lbl">Champagne</span></div>
+    <div class="swatch"><div class="sw-circle" style="background:#7e9870;"></div><span class="sw-lbl">Sage</span></div>
+    <div class="swatch"><div class="sw-circle" style="background:#c9a356;"></div><span class="sw-lbl">Muted Gold</span></div>
+    <div class="swatch"><div class="sw-circle" style="background:#c4a882;"></div><span class="sw-lbl">Warm Beige</span></div>
+    <div class="swatch"><div class="sw-circle" style="background:#7a6048;"></div><span class="sw-lbl">Earthy Brown</span></div>
+  </div>
+
+  <p class="dresscode-note">
+    Modest &amp; elegant fusion wear.<br>
+    Earth tones warmly requested.<br>
+    <em style="color:var(--text-dim);font-size:0.9em;">Please avoid bright whites &amp; neons.</em>
+  </p>
+</div>
+```
+
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+
+  <footer>
+    <div class="reveal">
+      <p class="foot-names">Sona &amp; Sahal</p>
+      <p class="foot-date">24 · May · 2026 · Anakkayam</p>
+      <div class="divider" style="max-width:140px;"><span class="div-line"></span><span class="div-diamond" style="background:var(--gold-dim);"></span><span class="div-line r"></span></div>
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+/* ── STARS ── */
+(function(){
+  const c = document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s = document.createElement('div');
+    s.classList.add('star');
+    const sz = Math.random()*1.8+0.5;
+    s.style.cssText = `
+      width:${sz}px;height:${sz}px;
+      left:${Math.random()*100}vw;
+      top:${Math.random()*100}vh;
+      animation-duration:${Math.random()*4+2.5}s;
+      animation-delay:${Math.random()*6}s;
+    `;
+    c.appendChild(s);
+  }
+})();
+
+/* ── COUNTDOWN ── */
+(function(){
+  const t = new Date('2026-05-24T11:00:00+05:30').getTime();
+  function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
+  function tick(){
+    const diff = t - Date.now();
+    if(diff < 0){
+      ['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');
+      return;
+    }
+    document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+    document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
+    document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
+    document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ── REVEAL ── */
+(function(){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  },{threshold:0.12, rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ── MUSIC ── */
+let playing = false;
+function toggleMusic(){
+  const a = document.getElementById('bgm');
+  const btn = document.getElementById('music-btn');
+  const lbl = document.getElementById('mus-lbl');
+  const ico = document.getElementById('mus-ico');
+  playing = !playing;
+  if(playing){
+    btn.classList.add('playing');
+    lbl.textContent = 'Pause';
+    ico.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    try{ a.play(); }catch(e){}
+  } else {
+    btn.classList.remove('playing');
+    lbl.textContent = 'Atmosphere';
+    ico.innerHTML = '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>';
+    a.pause();
+  }
+}
+</script>
+
+</body>
+</html>
